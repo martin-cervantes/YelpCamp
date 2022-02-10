@@ -3,9 +3,11 @@ const app = express();
 
 const port_num = process.env.PORT || 3000;
 
+app.set('view engine', 'ejs');
+
 app.get('/', (req, res) => {
   console.log('get root');
-  res.send('<h1>Get Root</h1>');
+  res.render('home');
 });
 
 app.get('/cats', (req, res) => {
@@ -21,6 +23,10 @@ app.get('/dogs', (req, res) => {
 app.get('/search', (req, res) => {
   console.log(req.query);
   const {q} = req.query;
+
+  if (!q)
+    res.send('</h1>Nothing found if nothing search</h1>');
+
   res.send(`<h1>Searching for ${q}</h1>`);
 });
 
