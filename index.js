@@ -18,11 +18,17 @@ app.get('/dogs', (req, res) => {
   res.send('<h1>Get Dogs</h1>');
 });
 
+app.get('/search', (req, res) => {
+  console.log(req.query);
+  const {q} = req.query;
+  res.send(`<h1>Searching for ${q}</h1>`);
+});
+
 app.get('/:controller/:method', (req, res) => {
   console.log(req.params);
   const {controller, method} = req.params;
   res.send(`<h1>Controller: ${controller}<br>Method: ${method}</h1>`);
-})
+});
 
 app.listen(port_num, () => {
   console.log(`Listening on port ${port_num}`);
