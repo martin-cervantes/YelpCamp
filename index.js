@@ -1,13 +1,15 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 
 const port_num = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 app.get('/', (req, res) => {
   console.log('get root');
-  res.render('home');
+  res.render('main/home');
 });
 
 app.get('/cats', (req, res) => {
