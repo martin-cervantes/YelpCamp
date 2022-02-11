@@ -22,6 +22,11 @@ app.get('/dogs', (req, res) => {
   res.send('<h1>Get Dogs</h1>');
 });
 
+app.get('/random', (req, res) => {
+  const number = Math.floor(Math.random() * 10) + 1;
+  res.render('main/random', {number: number});
+});
+
 app.get('/search', (req, res) => {
   console.log(req.query);
   const {q} = req.query;
