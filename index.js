@@ -24,7 +24,8 @@ app.get('/dogs', (req, res) => {
 
 app.get('/random', (req, res) => {
   const number = Math.floor(Math.random() * 10) + 1;
-  res.render('main/random', {number: number});
+  console.log(``)
+  res.render('main/random', { number });
 });
 
 app.get('/search', (req, res) => {
