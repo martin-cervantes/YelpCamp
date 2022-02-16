@@ -14,7 +14,8 @@ app.get('/', (req, res) => {
 
 app.get('/cats', (req, res) => {
   console.log('get cats');
-  res.send('<h1>Get Cats</h1>');
+  cats = ['Luna', 'Milo', 'Oliver', 'Leo', 'Loki', 'Bella', 'Charlie', 'Willow'];
+  res.render('main/cats', { cats });
 });
 
 app.get('/dogs', (req, res) => {
@@ -24,7 +25,7 @@ app.get('/dogs', (req, res) => {
 
 app.get('/random', (req, res) => {
   const number = Math.floor(Math.random() * 10) + 1;
-  console.log(``)
+  console.log(`get random = ${number}`)
   res.render('main/random', { number });
 });
 
