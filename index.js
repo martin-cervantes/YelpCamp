@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const reddintData = require('./data.json');
 
 const port_num = process.env.PORT || 3000;
 
@@ -42,7 +43,12 @@ app.get('/search', (req, res) => {
 app.get('/:controller/:method', (req, res) => {
   console.log(req.params);
   const {controller, method} = req.params;
-  res.send(`<h1>Controller: ${controller}<br>Method: ${method}</h1>`);
+  const data = reddintData[method];
+  console.log(data)
+  if (data)
+    res.render('main/reddintData', { ...data });
+  else
+    res.render('main/notFound', { method });
 });
 
 app.listen(port_num, () => {
