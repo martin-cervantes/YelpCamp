@@ -4,28 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title><%= name %></title>
   </head>
 
   <body>
-    <h1><%= name %></h1>
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <p>Subscribers: <%= subscribers %></p>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home</a>
+          </li>
 
-    <p><%= description %></p>
+          <li class="nav-item">
+            <a class="nav-link" href="/random">Random</a>
+          </li>
 
-    <table border=1>
-      <tr>
-        <th>title</th>
-        <th>author</th>
-      </tr>
-      
-      <% for (let post of posts ) { %>
+          <li class="nav-item">
+            <a class="nav-link" href="/hola/chickens">Chickens</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/hola/soccer">Soccer</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1><%= name %></h1>
+
+      <p>Subscribers: <%= subscribers %></p>
+
+      <p><%= description %></p>
+
+      <table border=1>
         <tr>
-          <td><%= post.title %></td>
-          <td><%= post.author %></td>
+          <th>title</th>
+          <th>author</th>
         </tr>
-      <% } %>
-    </table>
+
+        <% for (let post of posts ) { %>
+          <tr>
+            <td><%= post.title %></td>
+            <td><%= post.author %></td>
+          </tr>
+        <% } %>
+      </table>
+    </div>
+
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
   </body>
 </html>
